@@ -1,0 +1,15 @@
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.para {
+    width: 500px;
+    display: block;
+    margin: 10px;
+    padding: 40px;
+    text-align: justify;
+}
