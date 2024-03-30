@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="factorialApp">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Factorial Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Factorial Calculator</h1>
+      <div ng-controller="FactorialController as ctrl">
+        <div class="form-group">
+          <label for="numberInput">Enter a number:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="numberInput"
+            ng-model="ctrl.number"
+          />
+        </div>
+        <button class="btn btn-success" ng-click="ctrl.calculate()">
+          Calculate Factorial
+        </button>
+        <div ng-if="ctrl.result !== null" class="mt-3">
+          <p ng-if="ctrl.error">{{ ctrl.error }}</p>
+          <p ng-if="!ctrl.error">
+            Factorial of {{ ctrl.number }} is: {{ ctrl.result }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+      angular
+        .module("factorialApp", [])
+        .controller("FactorialController", function () {
+          var ctrl = this;
+
+          ctrl.calculate = function () {
+            var number = ctrl.number;
+            if (number < 0) {
+              ctrl.error = "Factorial is not defined for negative numbers.";
+              ctrl.result = null;
+              return;
+            }
+
+            var factorial = 1;
+            for (var i = 2; i <= number; i++) {
+              factorial *= i;
+            }
+            ctrl.result = factorial;
+            ctrl.error = null;
+          };
+        });
+    </script>
+  </body>
+</html>

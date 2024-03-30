@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="routingApp">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AngularJS Routing Example</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>AngularJS Routing Example</h1>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#!">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!contact">Contact</a>
+        </li>
+      </ul>
+      <div ng-view></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script>
+      angular
+        .module("routingApp", ["ngRoute"])
+        .config(function ($routeProvider) {
+          $routeProvider
+            .when("/", {
+              templateUrl: "home.html",
+            })
+            .when("/about", {
+              templateUrl: "about.html",
+            })
+            .when("/contact", {
+              templateUrl: "contact.html",
+            })
+            .otherwise({ redirectTo: "/" });
+        });
+    </script>
+  </body>
+</html>

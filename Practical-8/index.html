@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Information Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="mt-4">Student Information Form</h2>
+      <form class="mt-4">
+        <div class="form-group">
+          <label for="enrollment">Enrollment No.:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="enrollment"
+            ng-model="enrollmentNumber"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" ng-model="name" />
+        </div>
+        <div class="form-group">
+          <label for="semester">Semester:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="semester"
+            ng-model="semester"
+          />
+        </div>
+        <div class="form-group">
+          <label for="branch">Branch:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="branch"
+            ng-model="branch"
+          />
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile Number:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="mobile"
+            ng-model="mobileNumber"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            ng-model="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <textarea
+            class="form-control"
+            id="address"
+            ng-model="address"
+          ></textarea>
+        </div>
+        <button type="button" class="btn btn-success" ng-click="submitForm()">
+          Submit
+        </button>
+      </form>
+      <h2 class="mt-4">Student Information</h2>
+      <table class="table table-bordered mt-4">
+        <tr>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Enrollment No.</td>
+          <td ng-bind="enrollmentNumber"></td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td ng-bind="name"></td>
+        </tr>
+        <tr>
+          <td>Semester</td>
+          <td ng-bind="semester"></td>
+        </tr>
+        <tr>
+          <td>Branch</td>
+          <td ng-bind="branch"></td>
+        </tr>
+        <tr>
+          <td>Mobile Number</td>
+          <td ng-bind="mobileNumber"></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td ng-bind="email"></td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td ng-bind="address"></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
